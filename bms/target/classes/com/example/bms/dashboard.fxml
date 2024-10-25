@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bms.dashboardController">
+    <children>
+        <AnchorPane fx:id="main_form" prefHeight="600.0" prefWidth="1100.0">
+         <children>
+            <BorderPane prefHeight="600.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <top>
+                  <AnchorPane prefHeight="43.0" prefWidth="1100.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
+                     <children>
+                        <ImageView fitHeight="25.0" fitWidth="32.0" layoutX="11.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/dash_logo.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="49.0" layoutY="10.0" text="Book Management System">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="close" layoutX="1030.0" layoutY="7.0" mnemonicParsing="false" onAction="#close" prefHeight="26.0" prefWidth="48.0" style="-fx-background-color: red;" />
+                        <Button fx:id="minimize" layoutX="978.0" layoutY="9.0" mnemonicParsing="false" onAction="#minimize" prefHeight="17.0" prefWidth="44.0" style="-fx-background-color: #F5F5F7;">
+                           <graphic>
+                              <ImageView fitHeight="18.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/minus.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                        <ImageView fitHeight="17.0" fitWidth="18.0" layoutX="1046.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/cross.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </top>
+               <left>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: linear-gradient(to top, #00cdac 0%, #8ddad5 100%);" BorderPane.alignment="CENTER">
+                     <children>
+                        <ImageView fitHeight="74.0" fitWidth="78.0" layoutX="61.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/dash_user.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="27.0" layoutY="109.0" text="Welcome Back,">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="username" alignment="CENTER" contentDisplay="CENTER" layoutX="64.0" layoutY="138.0" style="-fx-font-weight: bold; -fx-text-alignment: center;" text="User">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="dashboard_btn" layoutX="11.0" layoutY="182.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="30.0" prefWidth="177.0" style="-fx-background-color: #FAF7F0;" text="Dashboard" />
+                        <Button fx:id="availableBooks_btn" layoutX="11.0" layoutY="221.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="30.0" prefWidth="177.0" style="-fx-background-color: #FAF7F0;" text="Available Books" />
+                        <Button fx:id="purchaseBtn" layoutX="12.0" layoutY="260.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="30.0" prefWidth="177.0" style="-fx-background-color: #FAF7F0;" text="Purchase" />
+                        <Button fx:id="logout" layoutX="14.0" layoutY="507.0" mnemonicParsing="false" onAction="#logout" prefHeight="35.0" prefWidth="86.0" style="-fx-background-color: #FD8B51; -fx-text-fill: #fff;" text="Sign out" />
+                     </children>
+                  </AnchorPane>
+               </left>
+               <center>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane fx:id="dashboard_form" layoutX="52.0" layoutY="51.0" prefHeight="557.0" prefWidth="900.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="11.0" layoutY="8.0" prefHeight="538.0" prefWidth="878.0" style="-fx-background-color: #fff;">
+                                 <children>
+                                    <AnchorPane layoutX="11.0" layoutY="188.0" prefHeight="341.0" prefWidth="460.0" style="-fx-background-radius: 8;" />
+                                    <AnchorPane layoutX="21.0" layoutY="198.0" prefHeight="341.0" prefWidth="460.0" style="-fx-background-radius: 8; -fx-background-color: #F5F7F8;">
+                                       <children>
+                                          <AreaChart fx:id="dashboard_incomeChart" layoutX="-112.0" layoutY="-29.0" prefHeight="371.0" prefWidth="460.0" style="-fx-background-color: #FEF9F2;" title="Total Income Chart Data" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <xAxis>
+                                              <CategoryAxis side="BOTTOM" />
+                                            </xAxis>
+                                            <yAxis>
+                                              <NumberAxis side="LEFT" />
+                                            </yAxis>
+                                          </AreaChart>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="510.0" layoutY="198.0" prefHeight="341.0" prefWidth="355.0" style="-fx-background-radius: 8; -fx-background-color: #F5F7F8;">
+                                       <children>
+                                          <BarChart fx:id="dashboard_curstomerChart" layoutX="-96.0" layoutY="-49.0" prefHeight="351.0" prefWidth="404.0" style="-fx-background-color: #FEEE91;" title="Customer Chart Data" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <xAxis>
+                                              <CategoryAxis side="BOTTOM" />
+                                            </xAxis>
+                                            <yAxis>
+                                              <NumberAxis side="LEFT" />
+                                            </yAxis>
+                                          </BarChart>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="21.0" layoutY="18.0" prefHeight="166.0" prefWidth="857.0" style="-fx-background-color: #CBF3F0;">
+                                 <children>
+                                    <AnchorPane fx:id="dashboard_ABB" layoutX="20.0" layoutY="9.0" prefHeight="147.0" prefWidth="224.0" style="-fx-background-color: #F15156; -fx-background-radius: 8;">
+                                       <children>
+                                          <ImageView fitHeight="58.0" fitWidth="74.0" layoutX="26.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@img/dash_books.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label layoutX="44.0" layoutY="102.0" text="Available Books" textFill="WHITE">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="dashboard_avb" alignment="TOP_RIGHT" layoutX="164.0" layoutY="10.0" prefHeight="25.0" prefWidth="50.0" text="0" textFill="WHITE">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane fx:id="dashboard_TC" layoutX="605.0" layoutY="10.0" prefHeight="147.0" prefWidth="224.0" style="-fx-background-color: #A8AEC1; -fx-background-radius: 8;">
+                                       <children>
+                                          <ImageView fitHeight="58.0" fitWidth="74.0" layoutX="26.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@img/dash_people.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label layoutX="44.0" layoutY="102.0" text="Total Customers" textFill="WHITE">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="dashboard_tc" alignment="TOP_RIGHT" layoutX="164.0" layoutY="10.0" prefHeight="25.0" prefWidth="50.0" text="0" textFill="WHITE">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane fx:id="dashboard_TI" layoutX="315.0" layoutY="9.0" prefHeight="147.0" prefWidth="224.0" style="-fx-background-color: #FFC07F; -fx-background-radius: 8;">
+                                       <children>
+                                          <ImageView fitHeight="58.0" fitWidth="74.0" layoutX="26.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@img/dash_income.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label layoutX="44.0" layoutY="102.0" text="Total Income" textFill="WHITE">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="dashboard_totalinc" alignment="TOP_RIGHT" layoutX="83.0" layoutY="10.0" prefHeight="25.0" prefWidth="131.0" text="\$0" textFill="WHITE">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="availableBooks_form" layoutX="133.0" layoutY="144.0" prefHeight="557.0" prefWidth="900.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="10.0" layoutY="8.0" prefHeight="543.0" prefWidth="364.0" style="-fx-background-color: #FFBD73; -fx-background-radius: 8;">
+                                 <children>
+                                    <AnchorPane layoutX="99.0" layoutY="14.0" prefHeight="130.0" prefWidth="150.0" style="-fx-background-color: #FFEEA9;">
+                                       <children>
+                                          <Button fx:id="availableBooks_importBtn" layoutX="7.0" layoutY="92.0" mnemonicParsing="false" onAction="#availableBooksInsertImage" prefHeight="28.0" prefWidth="134.0" text="Import" />
+                                          <ImageView fx:id="availableBooks_imageView" fitHeight="79.0" fitWidth="134.0" layoutX="8.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #FFEEA9; -fx-background-radius: 5;" />
+                                       </children>
+                                    </AnchorPane>
+                                    <Label layoutX="63.0" layoutY="179.0" text="Book ID">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="availableBooks_BookID" layoutX="123.0" layoutY="175.0" />
+                                    <Label layoutX="49.0" layoutY="216.0" text="Book Title">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="availableBooks_BookTitle" layoutX="123.0" layoutY="214.0" />
+                                    <TextField fx:id="availableBooks_author" layoutX="123.0" layoutY="252.0" />
+                                    <TextField fx:id="availableBooks_genre" layoutX="123.0" layoutY="289.0" />
+                                    <Label layoutX="70.0" layoutY="255.0" text="Author">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="71.0" layoutY="292.0" text="Genre">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="34.0" layoutY="330.0" text="Publish Date">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <DatePicker fx:id="availableBooks_date" layoutX="123.0" layoutY="326.0" prefHeight="28.0" prefWidth="161.0" />
+                                    <TextField fx:id="availableBooks_price" layoutX="123.0" layoutY="365.0" promptText="\$0.00" />
+                                    <Label layoutX="79.0" layoutY="368.0" text="Price">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="availableBooks_addBtn" layoutX="73.0" layoutY="439.0" mnemonicParsing="false" onAction="#availableBooksAdd" prefHeight="28.0" prefWidth="96.0" style="-fx-background-color: #FAF7F0;" text="Add" />
+                                    <Button fx:id="availableBooks_updateBtn" layoutX="183.0" layoutY="439.0" mnemonicParsing="false" onAction="#availableBooksUpdate" prefHeight="28.0" prefWidth="96.0" style="-fx-background-color: #FAF7F0;" text="Update" />
+                                    <Button fx:id="availableBooks_clearBtn" layoutX="73.0" layoutY="480.0" mnemonicParsing="false" onAction="#availableBooksClear" prefHeight="28.0" prefWidth="96.0" style="-fx-background-color: #FAF7F0;" text="Clear" />
+                                    <Button fx:id="availableBooks_deleteBtn" layoutX="183.0" layoutY="480.0" mnemonicParsing="false" onAction="#availableBooksDelete" prefHeight="28.0" prefWidth="96.0" style="-fx-background-color: #FAF7F0;" text="Delete" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="383.0" layoutY="9.0" prefHeight="542.0" prefWidth="508.0" style="-fx-background-color: #B1D690; -fx-background-radius: 8;">
+                                 <children>
+                                    <TextField fx:id="availableBooks_search" layoutX="11.0" layoutY="17.0" onAction="#availableBookSearch" onKeyTyped="#availableBookSearch" prefHeight="35.0" prefWidth="238.0" promptText="Search" />
+                                    <TableView fx:id="availableBooks_tableView" layoutX="8.0" layoutY="65.0" onMouseClicked="#availableBooksSelect" prefHeight="469.0" prefWidth="492.0">
+                                      <columns>
+                                        <TableColumn fx:id="availableBooks_col_bookID" prefWidth="75.0" style="-fx-background-color: #FEF9F2;" text="Book Id" />
+                                        <TableColumn fx:id="availableBooks_col_bookTitle" prefWidth="75.0" style="-fx-background-color: #789DBC;" text="Book Title" />
+                                          <TableColumn fx:id="availableBooks_col_author" prefWidth="84.0" style="-fx-background-color: #C4E1F6;" text="Author" />
+                                          <TableColumn fx:id="availableBooks_col_genre" prefWidth="66.0" text="Genre" />
+                                          <TableColumn fx:id="availableBooks_col_date" prefWidth="114.0" style="-fx-background-color: #FEEE91;" text="Publish Date" />
+                                          <TableColumn fx:id="availableBooks_col_price" prefWidth="78.0" style="-fx-background-color: #FFBD73;" text="Price $" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="purchase_form" layoutX="45.0" layoutY="23.0" prefHeight="557.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="530.0" prefWidth="872.0" style="-fx-background-color: #FFEAE3; -fx-background-radius: 8;">
+                                 <children>
+                                    <TableView fx:id="purchase_tableView" layoutX="10.0" layoutY="235.0" prefHeight="283.0" prefWidth="851.0" style="-fx-background-radius: 8;">
+                                      <columns>
+                                        <TableColumn fx:id="purchase_col_bookID" prefWidth="150.0" style="-fx-background-color: #A4E9F9;" text="Book ID" />
+                                        <TableColumn fx:id="purchase_col_bookTitle" prefWidth="223.0" style="-fx-background-color: #A4E9F9;" text="Book Title" />
+                                          <TableColumn fx:id="purchase_col_author" prefWidth="210.0" style="-fx-background-color: #A4E9F9;" text="Author" />
+                                          <TableColumn fx:id="purchase_col_genre" prefWidth="102.0" style="-fx-background-color: #A4E9F9;" text="Genre" />
+                                          <TableColumn fx:id="purchase_col_quantity" prefWidth="72.0" style="-fx-background-color: #A4E9F9;" text="Quantity" />
+                                          <TableColumn fx:id="purchase_col_price" prefWidth="93.0" style="-fx-background-color: #A4E9F9;" text="Price" />
+                                      </columns>
+                                    </TableView>
+                                 </children></AnchorPane>
+                              <AnchorPane layoutX="24.0" layoutY="24.0" prefHeight="214.0" prefWidth="851.0" style="-fx-background-color: #FF9F66; -fx-background-radius: 8;">
+                                 <children>
+                                    <Label layoutX="50.0" layoutY="17.0" style="-fx-text-fill: #fff;" text="Book ID:">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox fx:id="purchase_bookID" layoutX="122.0" layoutY="14.0" onAction="#purchaseBookId" prefWidth="150.0" promptText="Choose" style="-fx-background-color: #A0D683;" />
+                                    <Label layoutX="33.0" layoutY="56.0" style="-fx-text-fill: #fff;" text="Book Title:">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox fx:id="purchase_bookTitle" layoutX="122.0" layoutY="53.0" onAction="#purchaseBookTitle" prefWidth="150.0" promptText="Choose" style="-fx-background-color: #A0D683;" />
+                                    <Label layoutX="622.0" layoutY="51.0" style="-fx-text-fill: #fff;" text="Total : ">
+                                       <font>
+                                          <Font size="22.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="purchaseTotal" layoutX="701.0" layoutY="51.0" prefHeight="32.0" prefWidth="139.0" style="-fx-text-fill: #fff;" text="\$0.0">
+                                       <font>
+                                          <Font size="22.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="purchase_addBtn" layoutX="121.0" layoutY="140.0" mnemonicParsing="false" onAction="#purchaseAdd" prefHeight="33.0" prefWidth="145.0" style="-fx-background-color: #C4D7FF;" text="Add" />
+                                    <Button fx:id="purchase_payBtn" layoutX="643.0" layoutY="106.0" mnemonicParsing="false" onAction="#purchasePay" prefHeight="29.0" prefWidth="96.0" style="-fx-background-color: #C4D7FF;" text="Pay" textFill="#684c4c">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Button>
+                                    <Label layoutX="34.0" layoutY="96.0" prefHeight="22.0" prefWidth="78.0" style="-fx-text-fill: #fff;" text="Quantity:">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Spinner fx:id="purchase_quantity" layoutX="122.0" layoutY="93.0" onMouseClicked="#purchaseQty" prefHeight="28.0" prefWidth="68.0" style="-fx-background-color: #A0D683;" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </center>
+            </BorderPane>
+         </children></AnchorPane>
+    </children>
+</StackPane>
